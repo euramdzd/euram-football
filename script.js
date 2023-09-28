@@ -19,7 +19,6 @@ document.querySelector('.date span').innerHTML = Dat_e;
 let d = ` ${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()} `
 
 // جلب قائمة مباريات اليوم
-setInterval(()=>{
 
   
 
@@ -67,7 +66,6 @@ showDetails(arrBoxMatch ,match);
 
 }).catch(err =>console.log( "err"))
 
-},500);
 function showMatch(country , arr){
     arr.forEach(i=>{
       i.classList.remove('hidd')
