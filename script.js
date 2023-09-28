@@ -29,7 +29,7 @@ fetch('https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey='+APIkey+'&t
   let country = match.filter(i => i.country_name != "Israel" ).map(i => i.country_name) // تحديد دول مقام فيها مباريات
   // ارجاع  دول بدون تكرار
     country = [...new Set(country)]
-country.sort();
+   country.sort();
   country = country.map(i => `<option value="${i}">${i}</option>`).join('')
 
   document.getElementById('country').innerHTML = country
