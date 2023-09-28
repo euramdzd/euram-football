@@ -19,6 +19,9 @@ document.querySelector('.date span').innerHTML = Dat_e;
 let d = ` ${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()} `
 
 // جلب قائمة مباريات اليوم
+setInterval(()=>{
+
+  
 
 fetch('https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey='+APIkey+'&timezone=Africa/Algiers&from='+d+'&to='+d)
 .then(res=>res.json())
@@ -27,7 +30,7 @@ fetch('https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey='+APIkey+'&t
   let country = match.filter(i => i.country_name != "Israel" ).map(i => i.country_name) // تحديد دول مقام فيها مباريات
   // ارجاع  دول بدون تكرار
     country = [...new Set(country)]
-
+country.sort();
   country = country.map(i => `<option value="${i}">${i}</option>`).join('')
 
   document.getElementById('country').innerHTML = country
@@ -62,9 +65,9 @@ optionSelect.onchange = () => {
 
 showDetails(arrBoxMatch ,match);
 
-}).catch(err => "err")
+}).catch(err =>console.log( "err"))
 
-
+},500);
 function showMatch(country , arr){
     arr.forEach(i=>{
       i.classList.remove('hidd')
