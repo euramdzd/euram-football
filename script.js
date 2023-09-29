@@ -126,7 +126,7 @@ function showDetails(arr , arrMatch){
           ${match.league_logo?`<div style="background: var(--main-color);border-radius: 6px;margin: 55px 0 10px 0;display: flex;align-items: center;justify-content: center;"><img src="${match.league_logo}" class="leaguelogo"></div>` : ""}
           <p>${match.league_name}</p>
           <div class="box" data-country="${match.country_name}" data-id="${match.event_key}">
-              <p>${match.event_status}</p>
+              <p>${match[i].event_status ? match[i].event_status : match[i].event_time}</p>
               <p><img src="${match.away_team_logo}" class="logo" alt="-"> ${match.event_away_team}</p>
               <p style="direction: rtl;">${match.event_final_result}</p>
               <p><img src="${match.home_team_logo}" class="logo" alt="-">${match.event_home_team}</p>
