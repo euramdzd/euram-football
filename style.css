@@ -12,6 +12,9 @@ html{
 :root{
   --main-color:#03A9F4
 }
+a{
+  text-decoration: none;
+}
 body{
   height: 100vh;
   position: relative;
@@ -37,16 +40,49 @@ body::after{
   z-index: 1;
   background-color: rgba(9, 9, 9, 0.46);
 }
-.container{
+.loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50% , -50%);
+  border: 4px solid var(--main-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: myAnim 0.5s linear infinite ;
+}
+@keyframes myAnim{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.content{
+  text-align: center;
+  z-index: 5;
+  position: relative;
   height: 100vh;
-  overflow-y:auto ;
+  overflow-y: auto;
+}
+.nav.act{
+  margin-top: 15px;
+    direction: rtl;
+    color: white !important;
+}
+.nav a , .nav span{
+  color: white;
+}
+.container{
   position: relative;
   z-index: 4;
-  padding: 20px 60px;
+  padding: 0 60px;
   text-align: center;
 }
 .date{
-  padding-top: 20px;
+  padding-top: 30px;
   color: white;
 }
 .date span{
@@ -58,12 +94,31 @@ body::after{
   margin: auto;
   padding: 20px;
 }
-select{
-  margin-top: 20px;
-  width: 100%;
-  padding: 8px 4px;
+
+a.box-country{
+  display: flex;
+  align-items: center;
+  color: var(--main-color);
+  margin: 8px;
+  background-color: rgba(0, 0, 0, .5);
   border-radius: 6px;
-  outline: none;
+  overflow: hidden;
+  text-align: start;
+  height: 40px;
+  color: var(--main-color) !important;
+}
+a.box-country span{
+  flex: 1;
+  color: var(--main-color);
+  padding: 0 20px;
+}
+a.box-country img{
+  width: 60px;
+  height: 100%;
+}
+
+h2.title{
+  color: var(--main-color);
 }
 .match{
   width: 700px;
@@ -84,12 +139,7 @@ select{
   transition: 0.4s ease-in-out;
   cursor: pointer;
 }  
-.box:hover{
-  transform: scale(1.1);
-  }
-.match .box.hidd{
-  display: none;
-}
+
 .box p{
   color: white !important;
   display: grid;
@@ -109,20 +159,8 @@ select{
   font-size: 18px;
 }
 
-.box-match{
-  position: fixed;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: 1;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-.box-match .match-details{
+
+.match-details{
   width: 600px;
   margin: auto;
   max-width: calc(100%);
@@ -132,42 +170,39 @@ select{
   color: white !important;
 }
 
-.close a{
-  padding: 6px;
-  color: white !important;
-  font-size: 18px;
-  text-decoration: none;
-  right: 25px;
-  top: 4px;
-  z-index: 88;
-  position: absolute;
-}
-.box-match .leaguelogo{
+.match-details .leaguelogo{
   width: 75px;
   padding: 5px;
 }
-.box-match .country{
+.match-details .country{
   position: absolute;
   top: 20px;
   left: 20px;
   width: 50px;
 }
+.match-details  .header{
+  padding: 20px;
+}
 .match-details  *{
-  color: white;
+    color: white ;
+
 }
 .match-details .cards{
   display: grid;
-  grid-template-columns: 1fr 1fr;gap: 50px;
+  grid-template-columns: 1fr 1fr;gap: 
+  50px;
+  align-items: center;
   
 }
 .match-details .cards p{
   padding: 4px 6px;
 }
 .match-details .cards .card{
-  width: 15px;
-  height: 20px;
+  width: 13px;
+  height: 18px;
   display: inline-block;
   margin-left: 10px;
+  margin-top: 5px;
     transform: rotate(5deg);
 }
 .match-details .cards .card.yellow{
@@ -176,10 +211,20 @@ select{
 .match-details .cards .card.red{
   background-color: red;
 }
-.match-details .stats{
-  max-height: 120px;
-    overflow: auto;
+.match-details p.gool{
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
 }
+.match-details p.gool span:nth-child(1){
+  color: var(--main-color);
+}
+
+.match-details p.gool span:nth-child(3){background: white;width: 15px;height: 15px;display: inline-block;border-radius: 50%;padding:0;}
+
+.match-details p.gool span:nth-child(3) img{width: 100%;height: 100%; display: block;margin: 0 !important;}
+
 .match-details .stats div{
   padding: 5px 0;
   display: grid;
