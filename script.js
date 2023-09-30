@@ -9,7 +9,7 @@ document.querySelector('.date span').innerHTML = Dat_e;
 
 
 
-// setInterval(()=>{ 
+ setInterval(()=>{ 
 let d = ` ${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()} `
 
 
@@ -105,8 +105,7 @@ else{
 
 
 }).catch(err =>console.log( "err"))
-
-// },500) 
+ },300) 
 
 
 
