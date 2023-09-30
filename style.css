@@ -48,7 +48,7 @@ body::after{
   margin:0;
   margin:auto;
   top: 50%;
-  left: 50%;
+  left: 45%;
   width: 70px;
   height: 70px;
   transform: translate(-50% , -50%);
